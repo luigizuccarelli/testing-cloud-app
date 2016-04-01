@@ -3,7 +3,7 @@ var cors = require('cors');
 var bodyParser = require('body-parser');
 var mbaasApi = require('fh-mbaas-api');
 var mbaasExpress = mbaasApi.mbaasExpress();
-var util = require('lib/util.js');
+var util = require('./lib/util.js');
 
 var securableEndpoints = [
   '/cache',
@@ -36,5 +36,5 @@ app.use(mbaasExpress.errorHandler());
 var port = process.env.FH_PORT || process.env.OPENSHIFT_NODEJS_PORT || 8001;
 var host = process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0';
 app.listen(port, host, function() {
-  console.log('App started at: ' + new Date() + ' on port: ' + port); 
+  console.log('App started at: ' + new Date() + ' on port: ' + port);
 });
