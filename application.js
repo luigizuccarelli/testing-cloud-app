@@ -15,7 +15,8 @@ var securableEndpoints = [
 var app = express();
 
 app.use(cors());
-app.use(bodyParser());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use('/sys', mbaasExpress.sys(securableEndpoints));
 app.use('/mbaas', mbaasExpress.mbaas);
